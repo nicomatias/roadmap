@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Functions</h1>
+<h2>Function Sequence</h2>
+<p>JavaScript functions are executed in the sequence they are called.</p>
+
+<p id="demo"></p>
+<p id="msj"></p>
+
+<script>
+
+// var nombre = prompt("Ingrese el nombre de la funcion")
+var empieza = prompt("Cuando empieza la funcion (en milisegundos)")
+// var tiempo = prompt("Tiempo de ejecución")
+// var finaliza = prompt("Cuando finaliza")
+
+async function myDisplay() {
+  const inicio = Date.now();
+  let myPromise = new Promise(function(resolve) {
+    setTimeout(function() {resolve("I love You !!");}, empieza);
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+  const fin = Date.now();
+  document.getElementById("msj").innerHTML = "Tiempo transcurrido: "+(fin - inicio)+" ms";
+}
+
+myDisplay();
+
+</script>
+
+</body>
+</html>
