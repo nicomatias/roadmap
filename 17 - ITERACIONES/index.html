@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de numeros mediante iteración</title>
+</head>
+<body>
+    <h1>Generador de numeros mediante iteración</h1>
+    <form id="myForm">
+        <button type="button" onclick="generaNumeros()">Genera Numeros del 1 al 10</button>
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        function generaNumeros() {
+            for (let i = 1; i <= 10; i++) {
+               const existingElement = document.querySelector("#resultado");
+               const newParagraphHTML = "<p>"+i+"</p>";
+               existingElement.insertAdjacentHTML("beforebegin", newParagraphHTML);
+            }
+       }
+    </script>
+</body>
+</html>
