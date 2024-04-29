@@ -1,17 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Expresión Regular</title>
+</head>
 <body>
+    <h1>Validación de Expresión Regular</h1>
+    <form id="myForm">
+        <label for="texto1">Ingresa cualquier texto:</label>
+        <input type="text" id="texto1" name="texto1" required>
+        <br>
+        <button type="button" onclick="extraerNumeros()">Extrae Numeros</button>
+        <button type="button" onclick="validaEmail()">Valida si es email</button>
+        <button type="button" onclick="validaNumeroTelefono()">Valida si es numero de telefono</button>
+        <button type="button" onclick="validaURL()">Valida URL</button>
+    </form>
+    <p id="resultado"></p>
 
-<h1>JavaScript Functions</h1>
-<h2>Function Sequence</h2>
-<p>JavaScript functions are executed in the sequence they are called.</p>
-
-<p id="demo"></p>
-<p id="msj"></p>
-
-<script>
-
-</script>
-
+    <script>
+        function extraerNumeros() {
+            const texto1 = document.getElementById("texto1").value;
+            document.getElementById("resultado").textContent = texto1.replace(/\D/g, "");
+       }
+       function validaEmail() {
+            const expresionRegular = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const texto1 = document.getElementById("texto1").value;
+            document.getElementById("resultado").textContent = expresionRegular.test(texto1);
+       }
+       function validaNumeroTelefono() {
+            const expresionRegular = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
+            const texto1 = document.getElementById("texto1").value;
+            document.getElementById("resultado").textContent = expresionRegular.test(texto1);
+       }
+       function validaURL() {
+            const texto1 = document.getElementById("texto1").value;
+            document.getElementById("resultado").textContent = URL.canParse(texto1);
+       }
+    </script>
 </body>
 </html>
