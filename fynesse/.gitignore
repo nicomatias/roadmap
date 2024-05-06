@@ -1,7 +1,0 @@
-*.db
-*.ipynb
-*.py[cod]
-.cache
-.ipynb_checkpoints/
-.web
-__pycache__/
